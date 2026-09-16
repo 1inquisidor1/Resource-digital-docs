@@ -79,6 +79,7 @@ function generateSystemCard(raw) {
         'pending': 'badge--pending',
         'in-progress': 'badge--progress',
         'planned': 'badge--planned',
+        'done': 'badge--done',
         'future': 'badge--future'
     };
     
@@ -86,6 +87,7 @@ function generateSystemCard(raw) {
         'pending': 'Pendiente',
         'in-progress': 'En progreso',
         'planned': 'Planificado',
+        'done': 'Completado',
         'future': 'Futuro'
     };
     
@@ -209,7 +211,7 @@ async function loadData() {
         if (systemsContainer) {
             systemsContainer.innerHTML = '<p style="color: var(--text-2); text-align: center; grid-column: 1/-1;">' +
                 'Error al cargar los datos. Por favor, recarga la pagina o consulta la ' +
-                '<a href="https://github.com/1inquisidor1/Resource-digital/tree/main/docs/systems" style="color: var(--accent);">documentacion en GitHub</a>.' +
+                '<a href="https://github.com/1inquisidor1/Resource-digital-docs/tree/main/docs/systems" style="color: var(--accent);">documentacion en GitHub</a>.' +
             '</p>';
         }
     }

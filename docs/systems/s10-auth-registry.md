@@ -1,9 +1,9 @@
 ---
 title: Auth and Registry
-status: pending
+status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,7 +16,7 @@ Autenticación y registro de usuarios.
 ## Estado
 
 - Fase: 1
-- Estado: pending
+- Estado: Completado — auth local Keystore (login/registro/consentimiento/splash+gate). Logout frena sharing (detiene servicio + revoca banda, P0-4). Supabase Auth diferido, solo sync outbox mínimo futuro sin migrar auth
 - Dependencias: (ninguna)
 - Bloqueadores: (ninguno)
 

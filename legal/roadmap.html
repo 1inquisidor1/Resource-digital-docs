@@ -323,6 +323,12 @@
             border-color: var(--accent);
             color: var(--accent);
         }
+        .week__task--done {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #04120c;
+            font-weight: 700;
+        }
 
         /* SYSTEMS */
         .systems-section {
@@ -543,9 +549,9 @@
                             <div class="week__tasks">
                                 <span class="week__task week__task--highlight">Flutter + Riverpod</span>
                                 <span class="week__task">Configuracion CI/CD</span>
-                                <span class="week__task">Aprobacion Honeygain</span>
-                                <span class="week__task">Aprobacion Pawns.app</span>
-                                <span class="week__task">Registro BrightSDK</span>
+                                <span class="week__task">Aprobacion Honeygain: sin contrato</span>
+                                <span class="week__task">Aprobacion Pawns.app: sin contrato</span>
+                                <span class="week__task week__task--done">BrightSDK aprobado</span>
                             </div>
                         </div>
                     </div>
@@ -556,9 +562,9 @@
                             <div class="week__tasks">
                                 <span class="week__task">Diseno UI/UX completo</span>
                                 <span class="week__task week__task--highlight">Onboarding de usuario</span>
-                                <span class="week__task">Integracion Honeygain SDK</span>
-                                <span class="week__task">Integracion Pawns SDK</span>
-                                <span class="week__task">Auth Local (SQLite)</span>
+                                <span class="week__task week__task--done">BrightSDK integrado (real)</span>
+                                <span class="week__task">Pawns SDK pendiente</span>
+                                <span class="week__task week__task--done">Auth local Keystore</span>
                             </div>
                         </div>
                     </div>
@@ -567,9 +573,9 @@
                         <div class="week__content">
                             <h3 class="week__title">Servicio Foreground y Notificaciones</h3>
                             <div class="week__tasks">
-                                <span class="week__task week__task--highlight">Servicio primer plano</span>
-                                <span class="week__task">Overlay de estado</span>
-                                <span class="week__task">Notificaciones locales</span>
+                                <span class="week__task week__task--done">Servicio primer plano</span>
+                                <span class="week__task">Overlay de estado (pendiente)</span>
+                                <span class="week__task week__task--done">Notificaciones locales</span>
                                 <span class="week__task">Gestion de bateria</span>
                                 <span class="week__task">Widgets Android</span>
                             </div>
@@ -614,7 +620,7 @@
                             <div class="week__tasks">
                                 <span class="week__task week__task--highlight">Identidad DID peaq</span>
                                 <span class="week__task">peaq pay integracion</span>
-                                <span class="week__task">Supabase Auth</span>
+                                <span class="week__task">Supabase Auth (diferido)</span>
                                 <span class="week__task">Wallet on-chain</span>
                             </div>
                         </div>
@@ -624,8 +630,8 @@
                         <div class="week__content">
                             <h3 class="week__title">Sensores, Buffer y Motor de Reparto</h3>
                             <div class="week__tasks">
-                                <span class="week__task">Captura de sensores</span>
-                                <span class="week__task">Buffer local SQLite WAL</span>
+                                <span class="week__task week__task--done">Captura de sensores</span>
+                                <span class="week__task week__task--done">Buffer local SQLCipher</span>
                                 <span class="week__task week__task--highlight">Motor de Reparto 70/30</span>
                                 <span class="week__task">Multiplicadores</span>
                                 <span class="week__task">Analytics anonimo</span>
@@ -895,7 +901,7 @@
                 </div>
                 <div class="tech-item">
                     <span class="tech-item__icon">S</span>
-                    <span>SQLite WAL</span>
+                    <span>SQLCipher</span>
                 </div>
                 <div class="tech-item">
                     <span class="tech-item__icon">P</span>
@@ -911,11 +917,11 @@
                 </div>
                 <div class="tech-item">
                     <span class="tech-item__icon">B</span>
-                    <span>BrightSDK</span>
+                    <span>BrightSDK (aprobado)</span>
                 </div>
                 <div class="tech-item">
                     <span class="tech-item__icon">S</span>
-                    <span>Supabase</span>
+                    <span>Supabase (diferido)</span>
                 </div>
                 <div class="tech-item">
                     <span class="tech-item__icon">D</span>

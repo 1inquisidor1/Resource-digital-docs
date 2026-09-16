@@ -20,21 +20,21 @@
 
 | ID | Archivo | Nombre | Fase | Estado |
 |---|---|---|---|---|
-| S01 | [s01-app-ui.md](./systems/s01-app-ui.md) | App UI | 1 | pending |
-| S02 | [s02-foreground-service.md](./systems/s02-foreground-service.md) | Foreground Service | 1 | pending |
-| S03 | [s03-sensor-capture.md](./systems/s03-sensor-capture.md) | Sensor Capture | 2 | planned |
-| S04 | [s04-sqlite-buffer.md](./systems/s04-sqlite-buffer.md) | SQLite Buffer | 1 | pending |
-| S05 | [s05-bandwidth-orchestrator.md](./systems/s05-bandwidth-orchestrator.md) | Bandwidth Orchestrator | 1 | in-progress |
+| S01 | [s01-app-ui.md](./systems/s01-app-ui.md) | App UI | 1 | done |
+| S02 | [s02-foreground-service.md](./systems/s02-foreground-service.md) | Foreground Service | 1 | done |
+| S03 | [s03-sensor-capture.md](./systems/s03-sensor-capture.md) | Sensor Capture | 2 | done |
+| S04 | [s04-sqlite-buffer.md](./systems/s04-sqlite-buffer.md) | SQLite Buffer | 1 | done |
+| S05 | [s05-bandwidth-orchestrator.md](./systems/s05-bandwidth-orchestrator.md) | Bandwidth Orchestrator | 1 | done |
 | S06 | [s06-peaq-l1.md](./systems/s06-peaq-l1.md) | peaq L1 | 2 | planned |
 | S07 | [s07-boosters-engine.md](./systems/s07-boosters-engine.md) | Boosters Engine | 2 | planned |
 | S08 | [s08-resource-panel.md](./systems/s08-resource-panel.md) | Resource Panel | 2 | planned |
 | S09 | [s09-affiliates-v2.md](./systems/s09-affiliates-v2.md) | Affiliates v2 | 2 | planned |
-| S10 | [s10-auth-registry.md](./systems/s10-auth-registry.md) | Auth & Registry | 1 | pending |
-| S11 | [s11-withdrawals.md](./systems/s11-withdrawals.md) | Withdrawals | 1 | pending |
-| S12 | [s12-notifications.md](./systems/s12-notifications.md) | Notifications | 1 | pending |
+| S10 | [s10-auth-registry.md](./systems/s10-auth-registry.md) | Auth & Registry | 1 | done |
+| S11 | [s11-withdrawals.md](./systems/s11-withdrawals.md) | Withdrawals | 1 | in-progress |
+| S12 | [s12-notifications.md](./systems/s12-notifications.md) | Notifications | 1 | done |
 | S13 | [s13-user-support.md](./systems/s13-user-support.md) | User Support | 2 | planned |
 | S14 | [s14-admin-panel.md](./systems/s14-admin-panel.md) | Admin Panel | 2 | planned |
 | S15 | [s15-analytics.md](./systems/s15-analytics.md) | Analytics | 2 | planned |
-| S16 | [s16-legal-compliance.md](./systems/s16-legal-compliance.md) | Legal Compliance | 1 | pending |
+| S16 | [s16-legal-compliance.md](./systems/s16-legal-compliance.md) | Legal Compliance | 1 | in-progress |
 | S17 | [s17-feature-flags.md](./systems/s17-feature-flags.md) | Feature Flags | 2 | planned |
 | S18 | [s18-monitoring.md](./systems/s18-monitoring.md) | Monitoring | 2 | planned |

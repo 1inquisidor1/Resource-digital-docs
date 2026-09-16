@@ -1,9 +1,9 @@
 ---
 title: Foreground Service
-status: pending
+status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,8 +16,8 @@ Servicio en primer plano para Android.
 ## Estado
 
 - Fase: 1
-- Estado: pending
-- Dependencias: (ninguna)
+- Estado: Completado — foreground persistente + heartbeat 15 min tipo dataSync (Android 14+)
+- Dependencias: S10
 - Bloqueadores: (ninguno)
 
 ## Función

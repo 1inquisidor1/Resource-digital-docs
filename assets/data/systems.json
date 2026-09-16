@@ -17,7 +17,7 @@
       "title": "Capa DePIN con peaq",
       "weeks": "5-8",
       "status": "planned",
-      "description": "Identidad peaq, backend Supabase y capa de recompensas."
+      "description": "Identidad peaq y capa de recompensas (Supabase diferido)."
     },
     {
       "id": 3,
@@ -33,7 +33,7 @@
       "code": "S01",
       "name": "App UI",
       "phase": 1,
-      "status": "pending",
+      "status": "done",
       "description": "Interfaz principal y navegación",
       "icon": "icon-node-core.svg",
       "category": "core"
@@ -42,7 +42,7 @@
       "code": "S02",
       "name": "Foreground Service",
       "phase": 1,
-      "status": "pending",
+      "status": "done",
       "description": "Servicio en primer plano persistente",
       "icon": "icon-rocket.svg",
       "category": "core"
@@ -51,7 +51,7 @@
       "code": "S03",
       "name": "Sensor Capture",
       "phase": 2,
-      "status": "planned",
+      "status": "done",
       "description": "Captura de luz, ruido y movimiento",
       "icon": "icon-sensors.svg",
       "category": "core"
@@ -60,7 +60,7 @@
       "code": "S04",
       "name": "SQLite Buffer",
       "phase": 1,
-      "status": "pending",
+      "status": "done",
       "description": "Almacenamiento local en cola",
       "icon": "icon-database-buffer.svg",
       "category": "core"
@@ -69,7 +69,7 @@
       "code": "S05",
       "name": "Bandwidth Orchestrator",
       "phase": 1,
-      "status": "in-progress",
+      "status": "done",
       "description": "Gestión de ancho de banda",
       "icon": "icon-wave-signal.svg",
       "category": "core"
@@ -114,7 +114,7 @@
       "code": "S10",
       "name": "Auth & Registry",
       "phase": 1,
-      "status": "pending",
+      "status": "done",
       "description": "Autenticación y registro",
       "icon": "icon-auth.svg",
       "category": "support"
@@ -123,7 +123,7 @@
       "code": "S11",
       "name": "Withdrawals",
       "phase": 1,
-      "status": "pending",
+      "status": "in-progress",
       "description": "Retiros multi-moneda",
       "icon": "icon-wallet.svg",
       "category": "support"
@@ -132,7 +132,7 @@
       "code": "S12",
       "name": "Notifications",
       "phase": 1,
-      "status": "pending",
+      "status": "done",
       "description": "Sistema de notificaciones push",
       "icon": "icon-notifications.svg",
       "category": "support"
@@ -168,7 +168,7 @@
       "code": "S16",
       "name": "Legal Compliance",
       "phase": 1,
-      "status": "pending",
+      "status": "in-progress",
       "description": "Cumplimiento normativo",
       "icon": "icon-document-shield.svg",
       "category": "support"

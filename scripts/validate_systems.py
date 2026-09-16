@@ -4,10 +4,10 @@
 import sys
 from pathlib import Path
 
-REQUIRED_SECTIONS = ["## Descripcion", "## Estado", "## Funcion"]
+REQUIRED_SECTIONS = ["## Descripción", "## Estado", "## Función"]
 
 errors = []
-for f in Path("docs/systems").glob("S*.md"):
+for f in list(Path("docs/systems").glob("S*.md")) + list(Path("docs/systems").glob("s*.md")):
     content = f.read_text(encoding="utf-8")
     for section in REQUIRED_SECTIONS:
         if section not in content:

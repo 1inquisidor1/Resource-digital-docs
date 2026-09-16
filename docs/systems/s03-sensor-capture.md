@@ -1,9 +1,9 @@
 ---
 title: Sensor Capture
-status: planned
+status: done
 phase: 2
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,8 +16,8 @@ Captura de sensores del dispositivo.
 ## Estado
 
 - Fase: 2
-- Estado: planned
-- Dependencias: (ninguna)
+- Estado: Completado (adelantado) — 4 sensores cada 5 s, timeout 4 s, anti-solape, pantalla /sensors con navbar
+- Dependencias: S02, S04
 - Bloqueadores: (ninguno)
 
 ## Función

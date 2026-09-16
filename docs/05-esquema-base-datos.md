@@ -3,7 +3,7 @@ title: Esquema Base de Datos
 status: active
 phase: null
 owner: andy
-last_updated: 2026-09-15
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -24,3 +24,4 @@ Esquema completo en `supabase/schema.sql` (fuente de verdad, no duplicar DDL aqu
 - `earnings` es solo lectura para el usuario; los pagos los escribe el backend.
 - Índices en `(node_id, timestamp)` y `(node_id, status)` para el panel (S08).
 - `CHECK` restringen niveles, sensores, fuentes y métodos de retiro válidos.
+- Supabase diferido 2026-09-16: no se usa por ahora; solo futuro sync outbox mínimo sin migrar auth local Keystore.

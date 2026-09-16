@@ -99,6 +99,12 @@ for sid, doc_data in docs_systems.items():
             f"json={json_data_item['phase']}"
         )
 
+    if doc_data["status"] != json_data_item["status"]:
+        errors.append(
+            f"{sid}: estado difiere — docs={doc_data['status']}, "
+            f"json={json_data_item['status']}"
+        )
+
 # 4c. Cada sistema en JSON debe estar en docs
 for sid in json_systems:
     if sid not in docs_systems:

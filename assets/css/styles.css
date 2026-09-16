@@ -742,6 +742,13 @@ a:hover {
     border: 1px solid rgba(0, 229, 160, 0.25);
 }
 
+.badge--done {
+    background: var(--accent);
+    color: #04120c;
+    border: 1px solid var(--accent);
+    font-weight: 700;
+}
+
 .badge--future {
     background: rgba(167, 139, 250, 0.1);
     color: var(--future);

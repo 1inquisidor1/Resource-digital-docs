@@ -1,9 +1,9 @@
 ---
 title: SQLite Buffer
-status: pending
+status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,8 +16,8 @@ Buffer local con SQLite.
 ## Estado
 
 - Fase: 1
-- Estado: pending
-- Dependencias: (ninguna)
+- Estado: Completado (adelantado Fase 2) — SQLite cifrado SQLCipher, clave en Keystore, migración automática con .bak (app commit 6c57ab0)
+- Dependencias: S10
 - Bloqueadores: (ninguno)
 
 ## Función

@@ -1,9 +1,9 @@
 ---
 title: Notifications
-status: pending
+status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,8 +16,8 @@ Sistema de notificaciones.
 ## Estado
 
 - Fase: 1
-- Estado: pending
-- Dependencias: (ninguna)
+- Estado: Completado — notificaciones locales + toggle
+- Dependencias: S02
 - Bloqueadores: (ninguno)
 
 ## Función

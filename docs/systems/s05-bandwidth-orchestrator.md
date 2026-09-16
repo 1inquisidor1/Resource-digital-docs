@@ -1,9 +1,9 @@
 ---
 title: Bandwidth Orchestrator
-status: in-progress
+status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-15
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,9 +16,9 @@ Orquestador que decide qué SDK de banda ancha corre y cuándo, según consentim
 ## Estado
 
 - Fase: 1
-- Estado: in-progress
+- Estado: Completado (mínimo real) — BrightSDK integrado real y aprobado, AAR en android/app/libs/, diálogo verificado en físico (app commits 93b4f2f+6450122). Solo Wi-Fi, opt-out en perfil. Ganancias solo en dashboard Bright (+24h); el SDK no expone API de revenue
 - Dependencias: S02, S10
-- Bloqueadores: aprobación de SDKs (Honeygain y Pawns solicitados, BrightSDK en revisión)
+- Bloqueadores: Honeygain/Pawns sin contrato; Reporting API Bright pendiente de pedir a su manager para revenue real en app
 
 ## Función
 

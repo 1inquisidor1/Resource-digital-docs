@@ -1,9 +1,9 @@
 ---
 title: Withdrawals
-status: pending
+status: in-progress
 phase: 1
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,9 +16,9 @@ Retiro de ganancias.
 ## Estado
 
 - Fase: 1
-- Estado: pending
-- Dependencias: (ninguna)
-- Bloqueadores: (ninguno)
+- Estado: En progreso (parcial) — solo pantalla mock; ledger completo A7 pendiente
+- Dependencias: S10
+- Bloqueadores: ledger A7
 
 ## Función
 

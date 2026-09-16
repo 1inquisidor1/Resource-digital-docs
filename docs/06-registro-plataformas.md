@@ -3,7 +3,7 @@ title: Registro de Plataformas
 status: active
 phase: 1
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -190,10 +190,20 @@ No. El SDK está diseñado para **no recolectar PII** y todo el tráfico está c
 
 ## Pawns.app
 
-Documento en construcción... (Planificado para Fase 1.2)
+Sin contrato (2026-09-16). Planificado para Fase 1.2, pendiente de solicitud.
 
 ---
 
 ## Bright SDK
 
-Documento en construcción... (Planificado para Fase 1.2)
+Integrado real y aprobado (2026-09-16). AAR en `android/app/libs/`, diálogo verificado en físico. Solo Wi-Fi, opt-out en perfil. Ganancias solo en dashboard Bright (+24h); el SDK no expone API de revenue. Pendiente: pedir Reporting API a su manager para revenue real en app.
+
+---
+
+## Historial de registros
+
+| Fecha | Plataforma | Evento | Estado |
+|---|---|---|---|
+| 2026-09-16 | BrightSDK | Integración real y aprobación, AAR + diálogo verificado | Aprobado |
+| 2026-09-16 | Honeygain | Sin contrato | Pendiente |
+| 2026-09-16 | Pawns.app | Sin contrato | Pendiente |

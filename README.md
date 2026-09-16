@@ -2,10 +2,10 @@
 
 > **El primer DePIN móvil multipropósito diseñado para Latinoamérica.**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Resource%20Digital-00e5a0?style=flat-square&logo=github)](https://github.com/1inquisidor1/Resource-digital)
+[![GitHub](https://img.shields.io/badge/GitHub-Resource%20Digital-00e5a0?style=flat-square&logo=github)](https://github.com/1inquisidor1/Resource-digital-docs)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-v5.1%20Alpha-yellow?style=flat-square)](https://github.com/1inquisidor1/Resource-digital/releases)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-60a5fa?style=flat-square)](https://1inquisidor1.github.io/Resource-digital/)
+[![Status](https://img.shields.io/badge/Status-v5.1%20Alpha-yellow?style=flat-square)](https://github.com/1inquisidor1/Resource-digital-docs/releases)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-60a5fa?style=flat-square)](https://1inquisidor1.github.io/Resource-digital-docs/)
 
 ---
 
@@ -28,10 +28,10 @@ Resource Digital convierte tu smartphone en un **nodo generador de ingresos pasi
 
 | Recurso | Enlace |
 |---------|--------|
-| Pagina Principal | [Ver sitio](https://1inquisidor1.github.io/Resource-digital/) |
-| Demo App | [Simulador interactivo](https://1inquisidor1.github.io/Resource-digital/legal/app-simulator.html) |
-| Beta Cerrada | [Registrarse](https://1inquisidor1.github.io/Resource-digital/legal/beta.html) |
-| Plan de Desarrollo | [Ver roadmap](https://1inquisidor1.github.io/Resource-digital/legal/roadmap.html) |
+| Pagina Principal | [Ver sitio](https://1inquisidor1.github.io/Resource-digital-docs/) |
+| Demo App | [Simulador interactivo](https://1inquisidor1.github.io/Resource-digital-docs/legal/app-simulator.html) |
+| Beta Cerrada | [Registrarse](https://1inquisidor1.github.io/Resource-digital-docs/legal/beta.html) |
+| Plan de Desarrollo | [Ver roadmap](https://1inquisidor1.github.io/Resource-digital-docs/legal/roadmap.html) |
 
 ---
 
@@ -83,11 +83,11 @@ Resource Digital convierte tu smartphone en un **nodo generador de ingresos pasi
 
 | Icono | Sistema | Descripción | Estado |
 |:-----:|---------|-------------|:------:|
-| <img src="assets/images/icon-node-core.svg" width="24" height="24" alt="App"> | **S01** App UI | Interfaz principal y navegación | ⏳ |
-| <img src="assets/images/icon-rocket.svg" width="24" height="24" alt="Foreground"> | **S02** Foreground Service | Servicio en primer plano persistente | ⏳ |
-| <img src="assets/images/icon-sensors.svg" width="24" height="24" alt="Sensores"> | **S03** Sensor Capture | Captura de luz, ruido y movimiento | ⏳ |
-| <img src="assets/images/icon-database-buffer.svg" width="24" height="24" alt="Buffer"> | **S04** SQLite Buffer | Almacenamiento local en cola | ⏳ |
-| <img src="assets/images/icon-wave-signal.svg" width="24" height="24" alt="Bandwidth"> | **S05** Bandwidth Orchestrator | Gestión de ancho de banda | ⏳ |
+| <img src="assets/images/icon-node-core.svg" width="24" height="24" alt="App"> | **S01** App UI | Interfaz principal y navegación | ✅ |
+| <img src="assets/images/icon-rocket.svg" width="24" height="24" alt="Foreground"> | **S02** Foreground Service | Servicio en primer plano persistente | ✅ |
+| <img src="assets/images/icon-sensors.svg" width="24" height="24" alt="Sensores"> | **S03** Sensor Capture | Captura de luz, ruido y movimiento | ✅ |
+| <img src="assets/images/icon-database-buffer.svg" width="24" height="24" alt="Buffer"> | **S04** SQLite Buffer | Almacenamiento local en cola | ✅ |
+| <img src="assets/images/icon-wave-signal.svg" width="24" height="24" alt="Bandwidth"> | **S05** Bandwidth Orchestrator | Gestión de ancho de banda | ✅ |
 
 ---
 
@@ -108,9 +108,9 @@ Resource Digital convierte tu smartphone en un **nodo generador de ingresos pasi
 
 | Icono | Sistema | Descripción | Estado |
 |:-----:|---------|-------------|:------:|
-| <img src="assets/images/icon-auth.svg" width="24" height="24" alt="Auth"> | **S10** Auth Registry | Registro y autenticación | ⏳ |
+| <img src="assets/images/icon-auth.svg" width="24" height="24" alt="Auth"> | **S10** Auth Registry | Registro y autenticación | ✅ |
 | <img src="assets/images/icon-wallet.svg" width="24" height="24" alt="Withdrawals"> | **S11** Withdrawals | Retiros multi-moneda | ⏳ |
-| <img src="assets/images/icon-notifications.svg" width="24" height="24" alt="Notificaciones"> | **S12** Notifications | Sistema de notificaciones push | ⏳ |
+| <img src="assets/images/icon-notifications.svg" width="24" height="24" alt="Notificaciones"> | **S12** Notifications | Sistema de notificaciones push | ✅ |
 | <img src="assets/images/icon-support.svg" width="24" height="24" alt="Soporte"> | **S13** User Support | Mesa de ayuda integrada | ⏳ |
 | <img src="assets/images/icon-cog-wheel.svg" width="24" height="24" alt="Admin"> | **S14** Panel Admin | Administración del sistema | ⏳ |
 | <img src="assets/images/icon-analytics.svg" width="24" height="24" alt="Analytics"> | **S15** Analytics | Métricas y reportes | ⏳ |
@@ -125,14 +125,14 @@ Resource Digital convierte tu smartphone en un **nodo generador de ingresos pasi
 
 | Sistema | Proveedor | Función |
 |:---|:---|:---|
-| S05 Bandwidth | Honeygain, Pawns.app, BrightSDK | Ancho de banda |
+| S05 Bandwidth | BrightSDK (aprobado) / Honeygain y Pawns.app sin contrato | Ancho de banda |
 | S06 peaq | peaq SDK | Blockchain L1 |
-| S10 Auth | Supabase Auth | Autenticación |
+| S10 Auth | Keystore local en Fase 1 (Supabase Auth diferido) | Autenticación |
 | S11 Withdrawals | PayOS, EBANX, Mercado Pago | Pasarela de pagos |
 | S15 Analytics | PostHog, Metabase | Métricas |
 | S18 Monitoring | Sentry, UptimeRobot | Monitoreo |
 
-**[Ver documentación completa](https://github.com/1inquisidor1/Resource-digital/tree/main/docs)**
+**[Ver documentación completa](https://github.com/1inquisidor1/Resource-digital-docs/tree/main/docs)**
 
 </div>
 
@@ -142,7 +142,7 @@ Resource Digital convierte tu smartphone en un **nodo generador de ingresos pasi
 
 Este proyecto está en desarrollo activo. Para contribuir:
 
-1. Revisa el [Plan de Desarrollo](https://1inquisidor1.github.io/Resource-digital/legal/roadmap.html)
+1. Revisa el [Plan de Desarrollo](https://1inquisidor1.github.io/Resource-digital-docs/legal/roadmap.html)
 2. Abre un Issue con tu propuesta
 3. Sube un Pull Request siguiendo las guías de estilo
 

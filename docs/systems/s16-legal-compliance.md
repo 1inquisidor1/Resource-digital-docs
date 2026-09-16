@@ -1,9 +1,9 @@
 ---
 title: Legal Compliance
-status: pending
+status: in-progress
 phase: 1
 owner: andy
-last_updated: 2026-09-13
+last_updated: 2026-09-16
 related: []
 ---
 
@@ -16,9 +16,9 @@ Cumplimiento legal.
 ## Estado
 
 - Fase: 1
-- Estado: pending
-- Dependencias: (ninguna)
-- Bloqueadores: (ninguno)
+- Estado: En progreso (parcial) — solo consentimiento + toggles; textos legales pendientes
+- Dependencias: S10
+- Bloqueadores: textos S16 pendientes
 
 ## Función
 
