@@ -14,6 +14,7 @@
 | [05-esquema-base-datos.md](./05-esquema-base-datos.md) | Esquema base de datos | active |
 | [06-registro-plataformas.md](./06-registro-plataformas.md) | Guias de registro (Honeygain, Pawns, Bright) | active |
 | [07-seguridad-privacidad.md](./07-seguridad-privacidad.md) | Seguridad y privacidad | active |
+| [08-identidad-visual.md](./08-identidad-visual.md) | Identidad visual (contrato app-sitio) | active |
 | [09-modelo-financiero.md](./09-modelo-financiero.md) | Modelo financiero | active |
 
 ## Sistemas

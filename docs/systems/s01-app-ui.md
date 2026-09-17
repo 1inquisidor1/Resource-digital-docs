@@ -3,7 +3,7 @@ title: App UI
 status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-16
+last_updated: 2026-09-17
 related: []
 ---
 
@@ -16,7 +16,7 @@ Interfaz principal de la aplicación Flutter.
 ## Estado
 
 - Fase: 1
-- Estado: Completado — home/recursos/retiros/perfil + navbar 5 items + /404, tema oscuro #070B14 con acento #00E5A0 (app commit 0ed4b94)
+- Estado: Completado — home/recursos/retiros/perfil + navbar 5 items + /404, tema oscuro #070B14 con acento #00E5A0 (app commit 0ed4b94) + burbuja flotante del nodo con toggle en Perfil (app @146ca82)
 - Dependencias: (ninguna)
 - Bloqueadores: (ninguno)
 

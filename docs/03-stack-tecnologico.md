@@ -3,7 +3,7 @@ title: Stack Tecnologico
 status: active
 phase: null
 owner: andy
-last_updated: 2026-09-16
+last_updated: 2026-09-17
 related: []
 ---
 
@@ -39,7 +39,7 @@ related: []
 - **Banda:** BrightSDK integrado real y aprobado (AAR en `android/app/libs/`); Honeygain y Pawns.app sin contrato. Ganancias solo en dashboard Bright (+24h); el SDK no expone API de revenue
 
 - **Servicio:** `flutter_background_service` (foreground + heartbeat 15 min tipo dataSync)
-- **Overlay:** `flutter_overlay_window` (dependencia instalada, cero uso — pendiente)
+- **Overlay:** burbuja flotante del nodo implementada (arrastrable con snap a bordes, doble-tap abre inicio, idle 5 s, toggle en Perfil). Fork vendorizado `flutter_overlay_window` 0.5.0 en `plugins/` con `PARCHE.md` (app @146ca82)
 - **Seguridad:** `flutter_rasp` + `flutter_secure_storage` (Keystore) + `sqflite_sqlcipher 3.4.1` (buffer cifrado con migración .bak)
 - **Sensores:** `sensors_plus` (streams como funciones; 4 sensores cada 5 s, timeout 4 s, anti-solape)
 - **Firma release:** pendiente (sigue clave debug, sin R8)

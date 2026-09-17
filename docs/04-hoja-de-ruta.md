@@ -3,7 +3,7 @@ title: Hoja de Ruta
 status: active
 phase: null
 owner: andy
-last_updated: 2026-09-16
+last_updated: 2026-09-17
 related: []
 ---
 
@@ -17,7 +17,9 @@ related: []
 - **Semana 3:** Servicio Foreground + Overlay + Notificaciones locales.
 - **Semana 4:** Validación Interna (5-10 usuarios beta en Ecuador).
 
-**Estado real 2026-09-16:** S01/S02/S10/S12 done; S05 done mínimo real con BrightSDK aprobado (Honeygain/Pawns sin contrato); S11 parcial (solo mock, ledger A7 pendiente); S16 parcial (solo consentimiento+toggles); overlay pendiente; firma release pendiente (clave debug, sin R8).
+**Estado real 2026-09-16:** S01/S02/S10/S12 done; S05 done mínimo real con BrightSDK aprobado (Honeygain/Pawns sin contrato); S11 parcial (solo mock, ledger A7 pendiente); S16 parcial (solo consentimiento+toggles); firma release pendiente (clave debug, sin R8).
+
+**Actualización 2026-09-17:** overlay burbuja flotante implementado en app (@146ca82, fork vendorizado + PARCHE.md); identidad visual v1 cerrada (contrato app≡sitio en `08-identidad-visual.md`).
 
 ## Fase 2: Capa DePIN con peaq (Semanas 5-8)
 
@@ -39,4 +41,4 @@ related: []
 - **Semana 11:** Hardening de Seguridad (RASP, Pinning).
 - **Semana 12:** Beta Ampliada (50 usuarios) y métricas finales.
 
-**Pendiente app:** overlay, ledger A7, textos S16, firma release (keystore del owner), beta 5-10 usuarios, Honeygain/Pawns, Reporting API Bright (pedir a su manager).
+**Pendiente app:** ledger A7, textos S16, firma release (keystore del owner), beta 5-10 usuarios, Honeygain/Pawns, Reporting API Bright (pedir a su manager).
