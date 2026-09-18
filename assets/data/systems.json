@@ -159,8 +159,8 @@
       "code": "S15",
       "name": "Analytics",
       "phase": 2,
-      "status": "planned",
-      "description": "Métricas y reportes",
+      "status": "in-progress",
+      "description": "Métricas de dispositivo en app + score (backend pendiente)",
       "icon": "icon-analytics.svg",
       "category": "support"
     },
