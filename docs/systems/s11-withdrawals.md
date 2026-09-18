@@ -16,7 +16,7 @@ Retiro de ganancias.
 ## Estado
 
 - Fase: 1
-- Estado: En progreso (parcial) — solo pantalla mock; ledger completo A7 pendiente
+- Estado: En progreso (parcial) — ledger local A7 hecho en app (tabla `ledger_entries` append-only, migración v1→v2 con semilla, solicitud con mínimo $5, lista con estados; commit `bc21089`); payouts reales pendientes
 - Dependencias: S10
 - Bloqueadores: ledger A7
 
