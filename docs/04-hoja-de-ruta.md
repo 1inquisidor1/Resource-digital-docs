@@ -19,7 +19,7 @@ related: []
 
 **Estado real 2026-09-16:** S01/S02/S10/S12 done; S05 done mínimo real con BrightSDK aprobado (Honeygain/Pawns sin contrato); S11 parcial (solo mock, ledger A7 pendiente); S16 parcial (solo consentimiento+toggles); firma release pendiente (clave debug, sin R8).
 
-**Actualización 2026-09-17:** overlay burbuja flotante implementado en app (@146ca82, fork vendorizado + PARCHE.md); identidad visual v1 cerrada (contrato app≡sitio en `08-identidad-visual.md`).
+**Actualización 2026-09-17:** overlay burbuja flotante implementado en app (@146ca82, fork vendorizado + PARCHE.md); identidad visual v1 cerrada (contrato app≡sitio en `08-identidad-visual.md`); logo malla hexagonal; S15 local (métricas dispositivo + score en Home/Perfil, app @27ce64a); reorganización UI por secciones con slots A7/S16; release arm64 35.4MB (arranque 1.1s vs 10.3s debug).
 
 ## Fase 2: Capa DePIN con peaq (Semanas 5-8)
 
