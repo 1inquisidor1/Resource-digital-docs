@@ -3,7 +3,7 @@ title: Auth and Registry
 status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-16
+last_updated: 2026-09-19
 related: []
 ---
 
@@ -16,7 +16,13 @@ Autenticación y registro de usuarios.
 ## Estado
 
 - Fase: 1
-- Estado: Completado — auth local Keystore (login/registro/consentimiento/splash+gate). Logout frena sharing (detiene servicio + revoca banda, P0-4). Supabase Auth diferido, solo sync outbox mínimo futuro sin migrar auth
+- Estado: Completado
+  - auth local Keystore (login/registro/consentimiento/splash+gate).
+    Logout frena sharing (detiene servicio + revoca banda, P0-4)
+  - Fase 2 en curso en app: Supabase Auth anónimo por dispositivo +
+    vínculo Google (`linkIdentityWithIdToken`, sin duplicar nodo)
+    verificados contra nube; sesión en Keystore, claves por
+    `--dart-define`
 - Dependencias: (ninguna)
 - Bloqueadores: (ninguno)
 

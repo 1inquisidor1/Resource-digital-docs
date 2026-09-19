@@ -3,7 +3,7 @@ title: SQLite Buffer
 status: done
 phase: 1
 owner: andy
-last_updated: 2026-09-16
+last_updated: 2026-09-19
 related: []
 ---
 
@@ -16,7 +16,11 @@ Buffer local con SQLite.
 ## Estado
 
 - Fase: 1
-- Estado: Completado (adelantado Fase 2) — SQLite cifrado SQLCipher, clave en Keystore, migración automática con .bak (app commit 6c57ab0)
+- Estado: Completado (adelantado Fase 2)
+  - SQLite cifrado SQLCipher, clave en Keystore, migración automática
+    con .bak (app commit 6c57ab0)
+  - v3 suma tabla `outbox` genérica (idempotente, backoff 1m→1h) para
+    el sync Supabase
 - Dependencias: S10
 - Bloqueadores: (ninguno)
 

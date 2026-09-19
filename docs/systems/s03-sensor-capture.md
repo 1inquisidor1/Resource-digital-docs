@@ -16,7 +16,8 @@ Captura de sensores del dispositivo.
 ## Estado
 
 - Fase: 2
-- Estado: Completado (adelantado) — 4 sensores cada 5 s, timeout 4 s, anti-solape, pantalla /sensors con navbar
+- Estado: Completado (adelantado) — 4 sensores cada 5 s, timeout 4 s,
+  anti-solape, pantalla /sensors con navbar
 - Dependencias: S02, S04
 - Bloqueadores: (ninguno)
 

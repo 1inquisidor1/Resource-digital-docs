@@ -20,7 +20,8 @@ related: []
 
 ## Backend & Infraestructura
 
-- **Backend:** Supabase (PostgreSQL 15+) — DECIDIDO NO por ahora; solo futuro sync outbox mínimo, sin migrar auth (decisión 2026-09-16)
+- **Backend:** Supabase (PostgreSQL 15+) — DECIDIDO NO por ahora;
+  solo futuro sync outbox mínimo, sin migrar auth (decisión 2026-09-16)
 - **Auth:** local Keystore en Fase 1; Supabase Auth (JWT) diferido a futuro *si se pide*
 - **Edge Functions:** Deno
 - **Monitoreo:** Sentry + UptimeRobot - *Fase 2*
@@ -36,10 +37,17 @@ related: []
 
 ## SDKs & Librerías Clave
 
-- **Banda:** BrightSDK integrado real y aprobado (AAR en `android/app/libs/`); Honeygain y Pawns.app sin contrato. Ganancias solo en dashboard Bright (+24h); el SDK no expone API de revenue
+- **Banda:** BrightSDK integrado real y aprobado (AAR en `android/app/libs/`);
+  Honeygain y Pawns.app sin contrato. Ganancias solo en dashboard Bright
+  (+24h); el SDK no expone API de revenue
 
 - **Servicio:** `flutter_background_service` (foreground + heartbeat 15 min tipo dataSync)
-- **Overlay:** burbuja flotante del nodo implementada (arrastrable con snap a bordes, doble-tap abre inicio, idle 5 s, toggle en Perfil). Fork vendorizado `flutter_overlay_window` 0.5.0 en `plugins/` con `PARCHE.md` (app @146ca82)
-- **Seguridad:** `flutter_rasp` + `flutter_secure_storage` (Keystore) + `sqflite_sqlcipher 3.4.1` (buffer cifrado con migración .bak)
-- **Sensores:** `sensors_plus` (streams como funciones; 4 sensores cada 5 s, timeout 4 s, anti-solape)
+- **Overlay:** burbuja flotante del nodo implementada (arrastrable con snap
+  a bordes, doble-tap abre inicio, idle 5 s, toggle en Perfil). Fork
+  vendorizado `flutter_overlay_window` 0.5.0 en `plugins/` con `PARCHE.md`
+  (app @146ca82)
+- **Seguridad:** `flutter_rasp` + `flutter_secure_storage` (Keystore) +
+  `sqflite_sqlcipher 3.4.1` (buffer cifrado con migración .bak)
+- **Sensores:** `sensors_plus` (streams como funciones; 4 sensores cada 5 s,
+  timeout 4 s, anti-solape)
 - **Firma release:** pendiente (sigue clave debug, sin R8)
