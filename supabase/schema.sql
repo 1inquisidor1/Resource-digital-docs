@@ -76,6 +76,10 @@ DROP POLICY IF EXISTS "Users view own earnings" ON earnings;
 CREATE POLICY "Users view own earnings" ON earnings
   FOR SELECT USING (auth.uid() = node_id);
 
+DROP POLICY IF EXISTS "Nodes insert own earnings" ON earnings;
+CREATE POLICY "Nodes insert own earnings" ON earnings
+  FOR INSERT WITH CHECK (auth.uid() = node_id);
+
 DROP POLICY IF EXISTS "Users manage own withdrawals" ON withdrawals;
 CREATE POLICY "Users manage own withdrawals" ON withdrawals
   FOR ALL USING (auth.uid() = node_id) WITH CHECK (auth.uid() = node_id);
