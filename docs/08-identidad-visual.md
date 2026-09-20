@@ -36,8 +36,12 @@ related: [03-stack-tecnologico.md]
 
 Casos tipográficos cerrados en app: `balanceAmount` (mono 32 w800),
 `balanceRate` (mono 12), `statValue` (mono bold), `sectionHeader`
-(sans 16 w700). Regla del repo app: prohibido `TextStyle` con
-literales fuera de `app_theme.dart`.
+(sans 16 w700), `metricLabel/Value/Sublabel` (11 / mono 14 w700 /
+10 atenuado), `chipLabel` (10), `cardValue/Label` (mono 12 w700 / 9),
+`bannerText` (12), `ledgerAmount` (mono bold), `listMono` (mono),
+`levelLabel(color)` (13 w600). Regla del repo app: prohibido `TextStyle`
+con literales fuera de `app_theme.dart` (auditoría P7 2026-09-19: cero
+literales).
 
 ## Logo oficial
 

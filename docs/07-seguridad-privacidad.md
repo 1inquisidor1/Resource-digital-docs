@@ -33,11 +33,13 @@ El SDK de Honeygain requiere:
 
 | Capa | Tecnología | Función |
 |------|------------|---------|
-| RASP | `flutter_rasp` | Root, Frida, repackaging |
+| RASP | `flutter_rasp` inicializado en arranque (política solo-aviso, monitoreo 60 s) | Root, Frida, repackaging (hashes con firma release) |
 | Storage | `flutter_secure_storage` | Cifrado con Android Keystore |
 | Auth | Supabase Auth + JWT | Tokens |
 | Autorización | Row Level Security | Aislamiento por usuario |
 | Red | Certificate pinning TLS | Anti-MITM |
+| Logs | Solo errores en release (redacción de secretos) | Sin fuga en logcat firmado |
+| Migraciones DB | `.bak` sin cifrar se purga al abrir | Sin copia plaintext eterna |
 | Build | Ofuscación Flutter | Anti-ingeniería inversa |
 | On-chain | peaq ID + peaq verify | Identidad descentralizada |
 
