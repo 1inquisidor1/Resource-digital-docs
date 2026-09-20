@@ -592,11 +592,13 @@
  <!-- FORM -->
  <form id="betaForm" role="form" aria-label="Formulario de registro beta" action="https://formsubmit.co/ajax/andy@resourcedigital.dpdns.org" method="POST">
 
- <!-- HONEYPOT - Anti-spam -->
- <div class="honeypot">
- <input type="text" name="_honey" tabindex="-1" autocomplete="off">
- <input type="checkbox" name="_captcha" tabindex="-1">
- </div>
+  <!-- HONEYPOT - Anti-spam (propio + formsubmit; accesible: fuera de
+       pantalla, nunca display:none) -->
+  <div class="honeypot" aria-hidden="true">
+  <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+  <input type="text" name="website_url" tabindex="-1" autocomplete="off">
+  <input type="checkbox" name="_captcha" tabindex="-1">
+  </div>
 
  <!-- FormSubmit config -->
  <input type="hidden" name="_subject" value="Nueva solicitud Beta - Resource Digital">
@@ -881,9 +883,14 @@
  </label>
  </div>
 
- <!-- SUBMIT -->
- <div class="submit-section">
- <button type="submit" class="submit-btn" id="submitBtn" aria-label="Enviar solicitud de beta">
+  <!-- SUBMIT -->
+  <div class="submit-section">
+  <p class="muted" style="font-size:12px;color:var(--text-2);margin:0 0 12px">
+  Guardamos tu solicitud solo para coordinar la beta y borramos las no
+  confirmadas a los 30 días. Puedes pedir el borrado cuando quieras a
+  <a href="privacy.html" style="color:var(--accent)">Privacidad</a>.
+  </p>
+  <button type="submit" class="submit-btn" id="submitBtn" aria-label="Enviar solicitud de beta">
  <span class="submit-btn__spinner"></span>
  <span class="submit-btn__text">Enviar Solicitud Beta</span>
  </button>
@@ -908,9 +915,14 @@
  </div>
 
  <script>
- // ========== PREVENT MULTIPLE SUBMISSIONS ==========
- const STORAGE_KEY = 'resource_digital_beta_registered';
- const EMAIL_KEY = 'resource_digital_beta_email';
+  // ========== PREVENT MULTIPLE SUBMISSIONS ==========
+  const STORAGE_KEY = 'resource_digital_beta_registered';
+  const EMAIL_KEY = 'resource_digital_beta_email';
+  const LAST_TRY_KEY = 'resource_digital_beta_last_try';
+  // Marca de carga: envíos antes de 8 s son bots (o impaciencia extrema).
+  const PAGE_LOADED_AT = Date.now();
+  const MIN_DWELL_MS = 8000;
+  const RETRY_COOLDOWN_MS = 60000;
 
  // Check if already registered
  function checkRegistration() {
@@ -949,34 +961,52 @@
  const submitBtn = document.getElementById('submitBtn');
  const email = document.getElementById('emailInput').value.trim();
 
- // Prevent multiple submissions
- if (localStorage.getItem(STORAGE_KEY) === 'true') {
- showError('Ya has enviado tu solicitud. Solo se permite una por usuario.');
- return;
- }
+  // Prevent multiple submissions
+  if (localStorage.getItem(STORAGE_KEY) === 'true') {
+  showError('Ya has enviado tu solicitud. Solo se permite una por usuario.');
+  return;
+  }
 
- // Validate email
- if (!isValidEmail(email)) {
- showError('Por favor ingresa un email válido.');
- return;
- }
+  // Throttle: 1 intento/minuto por navegador (frena ráfagas).
+  const lastTry = Number(localStorage.getItem(LAST_TRY_KEY) || 0);
+  if (Date.now() - lastTry < RETRY_COOLDOWN_MS) {
+  showError('Espera un minuto antes de reintentar.');
+  return;
+  }
+  localStorage.setItem(LAST_TRY_KEY, String(Date.now()));
 
- // Check honeypot
- const honeypot = document.querySelector('[name="_honey"]').value;
- if (honeypot) {
- // Bot detected, silently fail
- console.log('Bot detected');
- return;
- }
+  // Tiempo mínimo en página: los bots envían al instante.
+  if (Date.now() - PAGE_LOADED_AT < MIN_DWELL_MS) {
+  showError('Completa el formulario con calma e inténtalo de nuevo.');
+  return;
+  }
+
+  // Validate email (sintaxis + dominios desechables comunes).
+  if (!isValidEmail(email)) {
+  showError('Por favor ingresa un email válido.');
+  return;
+  }
+
+  // Check honeypots (propio + formsubmit). Se borra el nuestro antes de
+  // enviar para no ensuciar el email que llega.
+  const honeypot = document.querySelector('[name="_honey"]').value;
+  const ownHoneypot = document.querySelector('[name="website_url"]').value;
+  if (honeypot || ownHoneypot) {
+  // Bot detected, silently fail
+  console.log('Bot detected');
+  return;
+  }
 
  // Show loading
  submitBtn.classList.add('loading');
  submitBtn.disabled = true;
  document.querySelector('.submit-btn__text').textContent = 'Enviando...';
 
- // Submit form
- try {
- const formData = new FormData(this);
+  // Submit form
+  try {
+  const formData = new FormData(this);
+  // El honeypot propio no viaja (solo antispam local).
+  formData.delete('website_url');
 
  const response = await fetch(this.action, {
  method: 'POST',
@@ -1003,10 +1033,25 @@
  }
  });
 
- // ========== HELPERS ==========
- function isValidEmail(email) {
- return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
- }
+  // ========== HELPERS ==========
+  // Dominios desechables más comunes (primera barrera; el servidor
+  // valida MX en Fase B).
+  const DISPOSABLE_DOMAINS = [
+  'mailinator.com', 'guerrillamail.com', 'tempmail.com',
+  '10minutemail.com', 'yopmail.com', 'throwawaymail.com',
+  'trashmail.com', 'getnada.com', 'mohmal.com', 'temp-mail.org',
+  'fakeinbox.com', 'maildrop.cc', 'dispostable.com', 'spambog.com',
+  ];
+
+  function isValidEmail(email) {
+  if (!email || email.length > 254) return false;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return false;
+  if (email.includes('..')) return false;
+  const domain = email.split('@').pop().toLowerCase();
+  const tld = domain.split('.').pop();
+  if (!/^[a-z]{2,}$/.test(tld)) return false;
+  return !DISPOSABLE_DOMAINS.includes(domain);
+  }
 
  function showSuccess(email, alreadyRegistered) {
  document.getElementById('betaForm').style.display = 'none';
