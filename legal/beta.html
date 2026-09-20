@@ -584,10 +584,27 @@
  </p>
  </div>
 
- <!-- ERROR STATE -->
- <div class="error-state" id="errorState">
- <span class="error-state__text" id="errorText"></span>
- </div>
+  <!-- ERROR STATE -->
+  <div class="error-state" id="errorState">
+  <span class="error-state__text" id="errorText"></span>
+  </div>
+
+  <!-- OTP STATE (doble opt-in, Fase B) -->
+  <div class="success-state" id="otpState" style="display:none">
+  <h2 class="success-state__title">Revisa tu email</h2>
+  <p class="success-state__text">
+  Te enviamos un código de 6 dígitos a <span id="otpEmail"></span>.
+  Ingrésalo para confirmar tu solicitud:
+  </p>
+  <div class="form-group" style="max-width:220px;margin:12px auto">
+  <input type="text" class="form-input" id="otpInput" placeholder="123456"
+    inputmode="numeric" autocomplete="one-time-code" maxlength="8"
+    style="text-align:center">
+  </div>
+  <button type="button" class="submit-btn" id="otpBtn">
+  <span class="submit-btn__text">Confirmar</span>
+  </button>
+  </div>
 
  <!-- FORM -->
  <form id="betaForm" role="form" aria-label="Formulario de registro beta" action="https://formsubmit.co/ajax/andy@resourcedigital.dpdns.org" method="POST">
@@ -1029,38 +1046,79 @@
  submitBtn.disabled = true;
  document.querySelector('.submit-btn__text').textContent = 'Enviando...';
 
-  // Submit form
+  // Submit form (Fase B: Edge + OTP, ya no formsubmit).
+  const EDGE_BASE = 'https://fmovzbmksdubiphtxdco.supabase.co/functions/v1';
   try {
-  const formData = new FormData(this);
-  // El honeypot propio no viaja (solo antispam local).
-  formData.delete('website_url');
-  // El token Turnstile tampoco (Fase B lo verificará en servidor).
-  formData.delete('cf-turnstile-response');
+  const form = this;
+  const get = (name) => (form.querySelector(`[name="${name}"]`) || {}).value || '';
+  const payload = {
+  name: get('nombre').trim(),
+  email: email.toLowerCase(),
+  device: `${get('marca')} ${get('modelo')}`.trim(),
+  country: get('pais'),
+  city: get('ciudad').trim(),
+  turnstileToken: turnstileToken,
+  };
 
- const response = await fetch(this.action, {
- method: 'POST',
- body: formData,
- headers: {
- 'Accept': 'application/json'
- }
- });
+  const response = await fetch(`${EDGE_BASE}/beta-signup`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload),
+  });
+  const data = await response.json().catch(() => ({}));
 
- if (response.ok) {
- // Save to localStorage
- localStorage.setItem(STORAGE_KEY, 'true');
- localStorage.setItem(EMAIL_KEY, email);
+  if (!response.ok) {
+  const msg = {
+  captcha: 'Verificación anti-bots fallida. Recarga e inténtalo de nuevo.',
+  limite: 'Demasiados intentos. Espera una hora.',
+  datos: 'Revisa los datos ingresados.',
+  }[data.error] || 'Error en el servidor. Intenta más tarde.';
+  throw new Error(msg);
+  }
+  if (data.already) {
+  localStorage.setItem(STORAGE_KEY, 'true');
+  localStorage.setItem(EMAIL_KEY, email);
+  showSuccess(email, true);
+  return;
+  }
+  // Doble opt-in: pedir el código enviado al email.
+  document.getElementById('betaForm').style.display = 'none';
+  document.getElementById('otpEmail').textContent = email;
+  document.getElementById('otpState').style.display = 'block';
+  submitBtn.classList.remove('loading');
+  submitBtn.disabled = false;
+  document.querySelector('.submit-btn__text').textContent = 'Enviar Solicitud Beta';
+  } catch (error) {
+  showError(error.message || 'Error al enviar. Por favor intenta de nuevo.');
+  submitBtn.classList.remove('loading');
+  submitBtn.disabled = false;
+  document.querySelector('.submit-btn__text').textContent = 'Enviar Solicitud Beta';
+  }
+  });
 
- showSuccess(email, false);
- } else {
- throw new Error('Error en el servidor');
- }
- } catch (error) {
- showError('Error al enviar. Por favor intenta de nuevo.');
- submitBtn.classList.remove('loading');
- submitBtn.disabled = false;
- document.querySelector('.submit-btn__text').textContent = 'Enviar Solicitud Beta';
- }
- });
+  // ========== OTP CONFIRM ==========
+  document.getElementById('otpBtn').addEventListener('click', async () => {
+  const email = (document.getElementById('emailInput').value || '').trim().toLowerCase();
+  const otp = document.getElementById('otpInput').value.trim();
+  if (!/^\d{6,8}$/.test(otp)) {
+  showError('El código tiene 6 dígitos.');
+  return;
+  }
+  try {
+  const response = await fetch(`${EDGE_BASE}/beta-confirm`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, otp }),
+  });
+  if (!response.ok) throw new Error('Código incorrecto o vencido. Revisa tu email.');
+  localStorage.setItem(STORAGE_KEY, 'true');
+  localStorage.setItem(EMAIL_KEY, email);
+  document.getElementById('otpState').style.display = 'none';
+  showSuccess(email, false);
+  } catch (error) {
+  showError(error.message);
+  }
+  });
 
   // ========== HELPERS ==========
   // Dominios desechables más comunes (primera barrera; el servidor
