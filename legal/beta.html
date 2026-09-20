@@ -589,23 +589,6 @@
   <span class="error-state__text" id="errorText"></span>
   </div>
 
-  <!-- OTP STATE (doble opt-in, Fase B) -->
-  <div class="success-state" id="otpState" style="display:none">
-  <h2 class="success-state__title">Revisa tu email</h2>
-  <p class="success-state__text">
-  Te enviamos un código de 6 dígitos a <span id="otpEmail"></span>.
-  Ingrésalo para confirmar tu solicitud:
-  </p>
-  <div class="form-group" style="max-width:220px;margin:12px auto">
-  <input type="text" class="form-input" id="otpInput" placeholder="123456"
-    inputmode="numeric" autocomplete="one-time-code" maxlength="8"
-    style="text-align:center">
-  </div>
-  <button type="button" class="submit-btn" id="otpBtn">
-  <span class="submit-btn__text">Confirmar</span>
-  </button>
-  </div>
-
  <!-- FORM -->
  <form id="betaForm" role="form" aria-label="Formulario de registro beta" action="https://formsubmit.co/ajax/andy@resourcedigital.dpdns.org" method="POST">
 
@@ -1081,42 +1064,16 @@
   showSuccess(email, true);
   return;
   }
-  // Doble opt-in: pedir el código enviado al email.
-  document.getElementById('betaForm').style.display = 'none';
-  document.getElementById('otpEmail').textContent = email;
-  document.getElementById('otpState').style.display = 'block';
-  submitBtn.classList.remove('loading');
-  submitBtn.disabled = false;
-  document.querySelector('.submit-btn__text').textContent = 'Enviar Solicitud Beta';
+  // Beta cerrada: confirmación directa (sin OTP; ver Edge beta-signup).
+  localStorage.setItem(STORAGE_KEY, 'true');
+  localStorage.setItem(EMAIL_KEY, email);
+  showSuccess(email, false);
+  return;
   } catch (error) {
   showError(error.message || 'Error al enviar. Por favor intenta de nuevo.');
   submitBtn.classList.remove('loading');
   submitBtn.disabled = false;
   document.querySelector('.submit-btn__text').textContent = 'Enviar Solicitud Beta';
-  }
-  });
-
-  // ========== OTP CONFIRM ==========
-  document.getElementById('otpBtn').addEventListener('click', async () => {
-  const email = (document.getElementById('emailInput').value || '').trim().toLowerCase();
-  const otp = document.getElementById('otpInput').value.trim();
-  if (!/^\d{6,8}$/.test(otp)) {
-  showError('El código tiene 6 dígitos.');
-  return;
-  }
-  try {
-  const response = await fetch(`${EDGE_BASE}/beta-confirm`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, otp }),
-  });
-  if (!response.ok) throw new Error('Código incorrecto o vencido. Revisa tu email.');
-  localStorage.setItem(STORAGE_KEY, 'true');
-  localStorage.setItem(EMAIL_KEY, email);
-  document.getElementById('otpState').style.display = 'none';
-  showSuccess(email, false);
-  } catch (error) {
-  showError(error.message);
   }
   });
 
