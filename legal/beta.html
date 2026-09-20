@@ -890,6 +890,13 @@
   confirmadas a los 30 días. Puedes pedir el borrado cuando quieras a
   <a href="privacy.html" style="color:var(--accent)">Privacidad</a>.
   </p>
+  <!-- Turnstile anti-bots (capa 2 de 4; la verificación servidor llega
+       en Fase B; sin conexión el form sigue funcionando) -->
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAAE99MF2dHux-8gTC"
+    data-theme="dark" data-callback="onTurnstileOk"
+    data-error-callback="onTurnstileBad"
+    data-expired-callback="onTurnstileBad"
+    style="margin:0 0 12px"></div>
   <button type="submit" class="submit-btn" id="submitBtn" aria-label="Enviar solicitud de beta">
  <span class="submit-btn__spinner"></span>
  <span class="submit-btn__text">Enviar Solicitud Beta</span>
@@ -914,7 +921,9 @@
  </footer>
  </div>
 
- <script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async defer></script>
+  <script>
   // ========== PREVENT MULTIPLE SUBMISSIONS ==========
   const STORAGE_KEY = 'resource_digital_beta_registered';
   const EMAIL_KEY = 'resource_digital_beta_email';
@@ -923,6 +932,17 @@
   const PAGE_LOADED_AT = Date.now();
   const MIN_DWELL_MS = 8000;
   const RETRY_COOLDOWN_MS = 60000;
+
+  // Token Turnstile (null = sin verificar o script bloqueado).
+  let turnstileToken = null;
+
+  // Callbacks globales (los invoca el widget de Cloudflare).
+  function onTurnstileOk(token) {
+  turnstileToken = token;
+  }
+  function onTurnstileBad() {
+  turnstileToken = null;
+  }
 
  // Check if already registered
  function checkRegistration() {
@@ -987,6 +1007,13 @@
   return;
   }
 
+  // Turnstile: si el script cargó, exige token fresco. Si está
+  // bloqueado (offline/adblock), se sigue igual (Fase B lo exige).
+  if (typeof turnstile !== 'undefined' && !turnstileToken) {
+  showError('Completa la verificación anti-bots.');
+  return;
+  }
+
   // Check honeypots (propio + formsubmit). Se borra el nuestro antes de
   // enviar para no ensuciar el email que llega.
   const honeypot = document.querySelector('[name="_honey"]').value;
@@ -1007,6 +1034,8 @@
   const formData = new FormData(this);
   // El honeypot propio no viaja (solo antispam local).
   formData.delete('website_url');
+  // El token Turnstile tampoco (Fase B lo verificará en servidor).
+  formData.delete('cf-turnstile-response');
 
  const response = await fetch(this.action, {
  method: 'POST',
