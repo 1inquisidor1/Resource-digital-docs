@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS earnings (
   node_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
   amount_usdc DECIMAL NOT NULL CONSTRAINT positive_amount CHECK (amount_usdc > 0),
   source TEXT NOT NULL
-    CONSTRAINT valid_source CHECK (source IN ('bandwidth', 'sensors', 'storage', 'compute', 'affiliates')),
+    CONSTRAINT valid_source CHECK (source IN ('bandwidth', 'sensors', 'storage', 'compute', 'affiliates', 'tasks')),
   status TEXT DEFAULT 'pending' NOT NULL
     CONSTRAINT valid_status CHECK (status IN ('pending', 'paid')),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
