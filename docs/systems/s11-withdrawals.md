@@ -23,6 +23,9 @@ Retiro de ganancias.
   - sync Supabase en curso: outbox local (DB v3, backoff) + worker push
     a `earnings`/`withdrawals` con mapeo de enums verificado; payouts
     reales pendientes
+  - pools v1 (DB v4): `task_pools` con splits 60/20/20, rondas
+    open/verifying/paid y consenso 2/3 con quórum 3; spec anti-granja
+    en app (`ANTI_FARM.md`)
 - Dependencias: S10
 - Bloqueadores: ledger A7
 
